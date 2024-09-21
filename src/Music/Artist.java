@@ -1,45 +1,14 @@
 package Music;
 
-public class Artist {
-	private String name;
-	private int albumCount;
-	private int singleCount;
-	private Album[] albums;
-	private Song[] singles;
+import java.util.ArrayList;
+
+public class Artist extends MusicItem implements Reviewable {
+	private ArrayList<Song> allArtistSongs;
+	private ArrayList<Album> artistAlbums;
 	
-	public Artist(String name, Album[] albums, Song[] singles) {
-		this.name = name;
-		this.albumCount = albums.length;
-		this.singleCount = singles.length;
-		this.albums = albums;
-		this.singles = singles;
-	}
-	
-	public void addSingle(Song single) {
-		this.singleCount++;
-		Song[] tempSongList = new Song[this.singleCount];
-		
-		int i = 0;
-		for (Song song : this.singles) {
-			tempSongList[i] = song;
-			i++;
-		}
-		tempSongList[i] = single;
-		
-		this.singles = tempSongList;
-	}
-	
-	public void addAlbum(Album newAlbum) {
-		this.albumCount++;
-		Album[] tempAlbumList = new Album[this.albumCount];
-		
-		int i = 0;
-		for (Album album : this.albums) {
-			tempAlbumList[i] = album;
-			i++;
-		}
-		tempAlbumList[i] = newAlbum;
-		
-		this.albums = tempAlbumList;
+	public Artist(String artistName, ArrayList<Song> songs, ArrayList<Album> albums) {
+		super(artistName);
+		this.allArtistSongs = new ArrayList<Song>(songs);
+		this.artistAlbums = new ArrayList<Album>(albums);
 	}
 }
