@@ -1,3 +1,4 @@
 # tune-in
 
-An app to write and document song, album and artist reviews in one place
+An app to write and document song, album and artist reviews in one place.
+Currently heavily WIP
