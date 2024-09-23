@@ -1,42 +1,40 @@
 package Engine;
 
-import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 public class TuneInEngine {
 	
 	private JFrame frame;
+	private JPanel contentPanel;
+	private MenuState state;
+	
 	public static final int WINDOW_WIDTH = 1024;
 	public static final int WINDOW_HEIGHT = 768;
+	
+	public void changeState(MenuState newState) {
+		this.state.clear();
+		this.state = newState;
+		this.state.display();
+	}
 	
 	public void setupGUI() {
 		this.frame = new JFrame("Tune-In");
 		this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		
-		JPanel contentPanel = new JPanel(new FlowLayout());
-		
-		this.frame.setContentPane(contentPanel);
-		
+		this.contentPanel = new JPanel(new FlowLayout());
+		this.frame.setContentPane(this.contentPanel);
+
 		this.frame.setVisible(true);
-	}
-	
-	public void mainMenu() {
-		JButton createProfileBut = new JButton("Create User Profile");
-		createProfileBut.addActionListener((e)->{
-			// TODO write create profile button behavior here
-		});
-		this.frame.add(createProfileBut);
+		this.state = new MainMenu(this, contentPanel);
 		
-		JButton loadProfileBut = new JButton("Load User Profile");
-		loadProfileBut.addActionListener((e)->{
-			// TODO write load profile button behavior here
-		});
-		this.frame.add(loadProfileBut);
+		this.state.display();
 	}
 
 	public static void main(String[] args) {
@@ -44,7 +42,6 @@ public class TuneInEngine {
 		SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 program.setupGUI();
-                program.mainMenu();
             }
         });
 	}
