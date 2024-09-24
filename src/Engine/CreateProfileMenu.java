@@ -32,6 +32,7 @@ public class CreateProfileMenu extends MenuState {
 			} else {
 				Profile newUser = new Profile(usernameField.getText());
 				newUser.saveUserToFile();
+				engine.setCurrentUser(newUser);
 				// TODO: after user creation, move to next menu
 			}
 		});
