@@ -4,7 +4,7 @@ import javax.swing.*;
 
 /*  I leaned away from CardLayouts since I read that they maintain all cards in memory at once which sounds horrendous.
  *  This way should also support better code organization and make it easier for me to track my progress and work. */
-public class MenuState {
+public abstract class MenuState { // should never create just a MenuState object, so we can make this abstract
 	
 	protected TuneInEngine engine;
 	protected JPanel panel;

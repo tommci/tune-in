@@ -12,6 +12,10 @@ public class TuneInEngine {
 	public static final int WINDOW_WIDTH = 1024;
 	public static final int WINDOW_HEIGHT = 768;
 	
+	public TuneInEngine() {
+		// default constructor, not needed for anything yet
+	}
+	
 	public void changeState(MenuState newState) {
 		this.state.clear();
 		this.state = newState;
