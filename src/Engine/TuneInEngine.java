@@ -31,6 +31,10 @@ public class TuneInEngine {
 		
 		this.state.display();
 	}
+	
+	public JFrame getFrame() {
+		return this.frame;
+	}
 
 	public static void main(String[] args) {
 		TuneInEngine program = new TuneInEngine();

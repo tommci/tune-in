@@ -21,7 +21,7 @@ public class MainMenu extends MenuState {
 		
 		JButton loadProfileButton = new JButton("Load Profile");
 		loadProfileButton.addActionListener(event -> {
-			
+			// TODO: complete loadProfile functionality
 		});
 		this.panel.add(createProfileButton);
 		this.panel.add(loadProfileButton);
