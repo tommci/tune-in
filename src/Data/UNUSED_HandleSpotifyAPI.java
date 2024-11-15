@@ -1,3 +1,12 @@
+/*
+ * When I begun this project I had originally intended on using Spotify's API to get music information.
+ * At that time I had not known that their policy on use of metadata were quite overbearing. Once I found this out
+ * I realized using Spotify wouldn't be viable for my plans with this project.
+ * 
+ * However, this class file was an important step for me to learn how to send/receive HTTP requests to an API.
+ * I don't want to delete all that progress so I'm leaving it here for archival purposes and to remember this learning experience for
+ * me personally.
+ */
 package Data;
 
 import java.io.IOException;
@@ -8,14 +17,14 @@ import java.net.http.HttpResponse;
 import java.util.Base64;
 import java.util.Scanner;
 
-public class HandleSpotifyAPI {
+public class UNUSED_HandleSpotifyAPI {
 
 	private static final String clientID = "5211eb0a1f424fc0b8510ba7a00aebfc";
 	private String clientSecret;
 	
 	private String accessToken;
 	
-	public HandleSpotifyAPI() {
+	private UNUSED_HandleSpotifyAPI() { // made the constructor private to avoid instantiating this anywhere since it's unused
 		this.clientSecret = this._getSecret();
 		String clientInfo = clientID + ":" + this.clientSecret;
 		String encodedClientInfo = Base64.getEncoder().encodeToString(clientInfo.getBytes());
@@ -53,10 +62,6 @@ public class HandleSpotifyAPI {
 		String secret = in.nextLine();
 		in.close();
 		return secret;
-	}
-	
-	public static void main(String[] args) {
-		HandleSpotifyAPI api = new HandleSpotifyAPI();
 	}
 	
 }
